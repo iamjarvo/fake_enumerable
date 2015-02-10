@@ -33,4 +33,12 @@ describe Portfolio do
       result.must_equal [2]
     end
   end
+
+  describe '#reduce' do
+    it 'returns a single value when given an argument' do
+      result = @subject.reduce(1) { |sum, num| sum + num }
+
+      result.must_equal 7
+    end
+  end
 end

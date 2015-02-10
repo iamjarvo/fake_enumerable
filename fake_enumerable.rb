@@ -18,4 +18,12 @@ module FakeEnumerable
 
     array
   end
+
+  def reduce(accumulator)
+    each do |item|
+      accumulator = yield(accumulator, item)
+    end
+
+    accumulator
+  end
 end
