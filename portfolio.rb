@@ -13,6 +13,10 @@ class Portfolio
   end
 
   def each
+    unless block_given?
+      return FakeEnumerator.new(self, :each)
+    end
+
     accounts.each do |account|
       yield(account)
     end

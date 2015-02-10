@@ -1,5 +1,6 @@
 module FakeEnumerable
   def map
+   return FakeEnumerator.new(self, :map) unless block_given?
     array = []
 
     each do |item|
