@@ -25,4 +25,12 @@ describe Portfolio do
       result.must_equal [2, 3, 4]
     end
   end
+
+  describe '#select' do
+    it 'returns an array with values where condition is true' do
+      result = @subject.select { |num| num.even? }
+
+      result.must_equal [2]
+    end
+  end
 end
