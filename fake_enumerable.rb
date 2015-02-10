@@ -19,7 +19,13 @@ module FakeEnumerable
     array
   end
 
-  def reduce(accumulator=nil)
+  def reduce(arg=nil)
+    if arg.is_a? Symbol
+      return reduce { |accum, item| accum.send(arg, item) }
+    end
+
+    accumulator = arg
+
     each do |item|
       if accumulator
         accumulator = yield(accumulator, item)

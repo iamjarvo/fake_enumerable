@@ -46,5 +46,9 @@ describe Portfolio do
 
       result.must_equal 6
     end
+
+    it 'returns a single value when given a symbol' do
+      @subject.reduce(:*).must_equal 6
+    end
   end
 end
