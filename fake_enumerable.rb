@@ -19,9 +19,13 @@ module FakeEnumerable
     array
   end
 
-  def reduce(accumulator)
+  def reduce(accumulator=nil)
     each do |item|
-      accumulator = yield(accumulator, item)
+      if accumulator
+        accumulator = yield(accumulator, item)
+      else
+        accumulator = item
+      end
     end
 
     accumulator

@@ -40,5 +40,11 @@ describe Portfolio do
 
       result.must_equal 7
     end
+
+    it 'returns a single value when no argument is given' do
+      result = @subject.reduce { |sum, num| sum + num }
+
+      result.must_equal 6
+    end
   end
 end
